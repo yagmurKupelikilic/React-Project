@@ -46,7 +46,7 @@ state = {
   }
  
   render() {
-    const {name,department,salary} = this.props;
+    const {id,name,department,salary} = this.props;
     const {isVisible} = this.state;
 
     return (
@@ -71,7 +71,7 @@ state = {
             
              <p className="card-text"> Salary: {salary}</p>
              <p className="card-text"> Department: {department}</p>
-              <Link to ={'edit/${id}'} className="btn btn-dark btn-block">Update User</Link>
+              <Link to ={`edit/${id}`} className="btn btn-dark btn-block">Update User</Link>
               </div> : null
            }
          </div>

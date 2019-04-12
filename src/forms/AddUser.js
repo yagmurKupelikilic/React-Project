@@ -22,12 +22,21 @@ class AddUser extends Component {
         visible: false,
         name : "",
         department : "",
-        salary : ""
+        salary : "",
+        error : false
     }
     changeVisibility = (e) => {
         this.setState({
             visible : !this.state.visible
         })
+    }
+
+    validateForm = () => {
+        const {name,salary,department} = this.state;
+        if(name==="" || salary ==="" || department ==="" ){
+            return false;
+        }
+        return true;
     }
 
     //state degistirme 
@@ -48,7 +57,21 @@ class AddUser extends Component {
             salary
             
         }
+        if(!this.validateForm()){
+            this.setState({
+                error: true
+            })
+            return;
+        }
+
+        
         dispatch({type: "ADD_USER", payload:newUser});
+
+
+
+        //Redirect
+        this.props.history.push("/");
+
     }
 // changeName = (e) => {
 //     this.setState({
@@ -66,7 +89,7 @@ class AddUser extends Component {
 //     })
 // } 
   render() {
-      const {visible,name,salary,department} = this.state;
+      const {visible,name,salary,department,error} = this.state;
       return <UserConsumer>
          { value => {
              const {dispatch} = value;
@@ -79,6 +102,13 @@ class AddUser extends Component {
                           <h4>Add User Form</h4>
                       </div>
                       <div className="card-body">
+                      {
+                          error ?
+                          <div className ="alert alert-danger">
+                            Lütfen bilgilerinizi kontrol ediniz.
+                          </div>
+                          :null
+                      }
                           <form onSubmit = {this.addUser.bind(this, dispatch)}>
                               <div className="form-group">
                               <label htmlform="name">Name</label>
