@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import UserConsumer from '../context'
+import {Link} from "react-router-dom";
 
 class User extends Component {
 //if there is no info in App.js
@@ -70,7 +71,7 @@ state = {
             
              <p className="card-text"> Salary: {salary}</p>
              <p className="card-text"> Department: {department}</p>
-
+              <Link to ={'edit/${id}'} className="btn btn-dark btn-block">Update User</Link>
               </div> : null
            }
          </div>

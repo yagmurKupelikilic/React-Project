@@ -1,0 +1,27 @@
+{
+
+    "users" : [
+
+        {
+            "id": "id-1",
+            "name": "yagmur",
+            "salary": "5200",
+            "department": "bilisim"
+          },
+          {
+            "id": "id-2",
+            "name": "kivilcim",
+            "salary": "6000",
+            "department": "bilisim"
+          },
+          {
+            "id": "id-3",
+            "name": "kemalettin",
+            "salary": "200",
+            "department": "bilisim"
+          }
+
+
+    ]
+
+}
