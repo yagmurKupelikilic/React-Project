@@ -4,8 +4,6 @@ import UserConsumer from '../context'
 import {Link} from "react-router-dom";
 
 class User extends Component {
-//if there is no info in App.js
-
 state = { 
  Users: [
    {
@@ -25,6 +23,7 @@ state = {
  ]
 }
 
+//if there is no info in App.js
   static defaultProps = {
     name : "No information",
     department : "No information",
